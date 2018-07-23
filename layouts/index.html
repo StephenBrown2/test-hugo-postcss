@@ -1,0 +1,13 @@
+<html>
+<head>
+    {{ $toCssOpts := (dict "targetPath" "css/main.css" "outputStyle" "expanded") }}
+    {{ $postCssOpts := (dict "use" "postcss-grid-kiss" "use" "autoprefixer" "autoprefixer.browsers" "> 1%, last 2 versions") }}
+    {{ $styles := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS $toCssOpts | postCSS $postCssOpts | minify | fingerprint }}
+    <link type="text/css" rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+</head>
+<body>
+{{ with .Content }}
+{{ . }}
+{{ end }}
+</body>
+</html>
