@@ -1,1 +1,155 @@
 /* This file cannot be empty. */
+//colors
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$color_faded_jade_approx: {{ .Site.Params.bgColor | safeCSS }};
+$color_cararra: rgb(238, 238, 231);
+$color_geyser: rgb(204, 221, 221);
+$color_sail_approx: rgb(190, 226, 249);
+$color_hit_gray: rgb(158, 174, 179);
+$color_sinbad_approx: rgb(150, 212, 212);
+$color_dove_gray_approx: rgb(107, 107, 107);
+$color_faded_jade: rgb(74, 123, 111);
+$color_azure_approx: rgb(56, 102, 163);
+$color_ebony_clay: rgb(36, 46, 53);
+// https://www.colorcombos.com/color-schemes/194/ColorCombo194.html
+
+//fonts
+$system_fonts: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+$header_fonts: Raleway, Helvetica, Arial, sans-serif;
+$body_fonts: 'Goudy Bookletter 1911', Georgia, Times, serif;
+
+body {
+    background-color: $color_faded_jade_approx;
+    font-family: $system_fonts;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: $color_faded_jade_approx;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: $color_faded_jade_approx;
+}
+
+hr {
+    height: 1px;
+    color: $color_ebony_clay;
+    background-color: $color_ebony_clay;
+    border: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.width-200 {
+    width: 200px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.smaller-text {
+    font-size: smaller;
+    line-height: 15px;
+}
+
+h1, h2, h3 {
+    font-family: $header_fonts;
+}
+
+p, article {
+    font-family: $body_fonts;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+main {
+    width: 75%;
+    margin: 180px auto 50px;
+}
+
+a.header-button {
+    box-shadow: inset 0 1px 0 0 $color_sail_approx;
+    background: linear-gradient(to bottom, $color_sinbad_approx, $color_faded_jade_approx);
+    background-color: $color_sinbad_approx;
+    border-radius: 15px;
+    position: relative;
+    text-indent: 0;
+    border: 1px solid $color_azure_approx;
+    display: inline-block;
+    color: $color_ebony_clay;
+    font-family: 'Arial';
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    margin: 12px;
+    &:hover {
+        background: linear-gradient(to top, $color_sinbad_approx, $color_faded_jade_approx);
+        background-color: $color_faded_jade_approx;
+        color: $white;
+    }
+    &.active {
+        position: relative;
+        top: 1px;
+    }
+}
+
+dl.hxList {
+    display: block;
+    margin: 0;
+    > div {
+        display: flex;
+        + div {
+            margin-top: 20px;
+        }
+    }
+    dd {
+        flex: 0 0 90%;
+        max-width: 90%;
+        display: block;
+        flex-shrink: 1;
+        margin-left: 20px;
+        order: 2;
+    }
+    dt {
+        flex: 0 0 10%;
+        max-width: 10%;
+        color: $color_ebony_clay;
+        display: block;
+        flex-shrink: 1;
+        order: 1;
+        text-align: right;
+    }
+}
